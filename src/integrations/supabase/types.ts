@@ -14,7 +14,185 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      conversations: {
+        Row: {
+          created_at: string
+          id: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          title?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      messages: {
+        Row: {
+          content: string
+          conversation_id: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          conversation_id: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          conversation_id?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_conversation_id_fkey"
+            columns: ["conversation_id"]
+            isOneToOne: false
+            referencedRelation: "conversations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          ai_response_length: string
+          created_at: string
+          default_email_tone: string
+          default_reference_style: string
+          full_name: string
+          id: string
+          language: string
+          notifications_enabled: boolean
+          theme: string
+          time_zone: string
+          updated_at: string
+        }
+        Insert: {
+          ai_response_length?: string
+          created_at?: string
+          default_email_tone?: string
+          default_reference_style?: string
+          full_name?: string
+          id: string
+          language?: string
+          notifications_enabled?: boolean
+          theme?: string
+          time_zone?: string
+          updated_at?: string
+        }
+        Update: {
+          ai_response_length?: string
+          created_at?: string
+          default_email_tone?: string
+          default_reference_style?: string
+          full_name?: string
+          id?: string
+          language?: string
+          notifications_enabled?: boolean
+          theme?: string
+          time_zone?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      saved_outputs: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          kind: string
+          metadata: Json
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content?: string
+          created_at?: string
+          id?: string
+          kind: string
+          metadata?: Json
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          kind?: string
+          metadata?: Json
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      tasks: {
+        Row: {
+          category: string
+          completed: boolean
+          created_at: string
+          description: string
+          due_date: string | null
+          estimated_minutes: number
+          id: string
+          name: string
+          priority: string
+          sort_order: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          category?: string
+          completed?: boolean
+          created_at?: string
+          description?: string
+          due_date?: string | null
+          estimated_minutes?: number
+          id?: string
+          name: string
+          priority?: string
+          sort_order?: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          category?: string
+          completed?: boolean
+          created_at?: string
+          description?: string
+          due_date?: string | null
+          estimated_minutes?: number
+          id?: string
+          name?: string
+          priority?: string
+          sort_order?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
