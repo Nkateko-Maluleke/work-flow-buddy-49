@@ -19,13 +19,13 @@ import heroVisual from "@/assets/hero-visual.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Workplace AI — Work Smarter, Let AI Handle the Busywork" },
+      { title: "ALLORAXIA — Work Smarter, Let AI Handle the Busywork" },
       {
         name: "description",
         content:
           "An intelligent workplace productivity assistant for writing, planning, research, meetings and everyday tasks. Draft emails, summarize meetings and plan your day with AI.",
       },
-      { property: "og:title", content: "Workplace AI — Work Smarter, Let AI Handle the Busywork" },
+      { property: "og:title", content: "ALLORAXIA — Work Smarter, Let AI Handle the Busywork" },
       {
         property: "og:description",
         content:
@@ -85,7 +85,7 @@ function LandingPage() {
             <span className="gradient-ai flex size-8 items-center justify-center rounded-lg shadow-ai">
               <Sparkles className="size-4 text-primary-foreground" aria-hidden="true" />
             </span>
-            <span className="text-sm font-semibold">Workplace AI</span>
+            <span className="text-sm font-semibold">ALLORAXIA</span>
           </Link>
           <nav aria-label="Primary" className="flex items-center gap-2">
             <Button asChild variant="ghost" size="sm">
@@ -210,7 +210,7 @@ function LandingPage() {
 
       <footer className="border-t border-border py-8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 text-sm text-muted-foreground sm:px-6">
-          <p>© {new Date().getFullYear()} Workplace AI. AI productivity assistant.</p>
+          <p>© {new Date().getFullYear()} ALLORAXIA. AI productivity assistant.</p>
           <nav aria-label="Footer" className="flex gap-4">
             <Link to="/login" className="hover:text-foreground">
               Log in

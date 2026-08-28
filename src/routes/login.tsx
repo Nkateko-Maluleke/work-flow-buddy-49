@@ -13,13 +13,13 @@ import { lovable } from "@/integrations/lovable/index";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Log in — Workplace AI Productivity Assistant" },
+      { title: "Log in — ALLORAXIA Productivity Assistant" },
       {
         name: "description",
         content:
-          "Log in to Workplace AI to draft emails, summarize meetings, plan tasks and research topics with AI.",
+          "Log in to ALLORAXIA to draft emails, summarize meetings, plan tasks and research topics with AI.",
       },
-      { property: "og:title", content: "Log in — Workplace AI" },
+      { property: "og:title", content: "Log in — ALLORAXIA" },
       {
         property: "og:description",
         content: "Access your AI workplace productivity assistant.",
@@ -148,7 +148,7 @@ export function AuthLayout({
           <span className="gradient-ai flex size-8 items-center justify-center rounded-lg shadow-ai">
             <Sparkles className="size-4 text-primary-foreground" aria-hidden="true" />
           </span>
-          <span className="text-sm font-semibold">Workplace AI</span>
+          <span className="text-sm font-semibold">ALLORAXIA</span>
         </Link>
       </header>
       <main className="flex flex-1 items-center justify-center px-4 pb-12">

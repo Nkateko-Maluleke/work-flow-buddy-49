@@ -13,13 +13,13 @@ import { AuthLayout } from "./login";
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
-      { title: "Create your account — Workplace AI" },
+      { title: "Create your account — ALLORAXIA" },
       {
         name: "description",
         content:
-          "Create a free Workplace AI account to automate emails, meeting notes, task planning and research.",
+          "Create a free ALLORAXIA account to automate emails, meeting notes, task planning and research.",
       },
-      { property: "og:title", content: "Create your account — Workplace AI" },
+      { property: "og:title", content: "Create your account — ALLORAXIA" },
       {
         property: "og:description",
         content: "Start automating writing, meetings, planning and research with AI.",

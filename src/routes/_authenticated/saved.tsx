@@ -29,13 +29,13 @@ import { SelectField } from "./email";
 export const Route = createFileRoute("/_authenticated/saved")({
   head: () => ({
     meta: [
-      { title: "Saved Outputs — Workplace AI" },
+      { title: "Saved Outputs — ALLORAXIA" },
       {
         name: "description",
         content:
           "Search, filter, edit and export every AI output you saved: emails, meeting summaries, research briefings and plans.",
       },
-      { property: "og:title", content: "Saved Outputs — Workplace AI" },
+      { property: "og:title", content: "Saved Outputs — ALLORAXIA" },
       { property: "og:description", content: "Your searchable library of saved AI outputs." },
     ],
   }),

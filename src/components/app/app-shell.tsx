@@ -52,7 +52,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span className="gradient-ai flex size-7 items-center justify-center rounded-md">
               <Sparkles className="size-3.5 text-primary-foreground" aria-hidden="true" />
             </span>
-            <span className="text-sm font-semibold">Workplace AI</span>
+            <span className="text-sm font-semibold">ALLORAXIA</span>
           </span>
 
           <Button

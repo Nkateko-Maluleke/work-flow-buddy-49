@@ -20,13 +20,13 @@ import { SelectField } from "./email";
 export const Route = createFileRoute("/_authenticated/meetings")({
   head: () => ({
     meta: [
-      { title: "Meeting Summarizer — Workplace AI" },
+      { title: "Meeting Summarizer — ALLORAXIA" },
       {
         name: "description",
         content:
           "Turn raw meeting notes or transcripts into a clear summary with decisions, action items, owners and deadlines.",
       },
-      { property: "og:title", content: "Meeting Summarizer — Workplace AI" },
+      { property: "og:title", content: "Meeting Summarizer — ALLORAXIA" },
       {
         property: "og:description",
         content: "AI meeting summaries with decisions and action items.",

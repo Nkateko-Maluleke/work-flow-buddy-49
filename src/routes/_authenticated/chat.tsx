@@ -19,13 +19,13 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/_authenticated/chat")({
   head: () => ({
     meta: [
-      { title: "AI Chat — Workplace AI" },
+      { title: "AI Chat — ALLORAXIA" },
       {
         name: "description",
         content:
           "Chat with your workplace AI assistant for writing, planning, brainstorming and summarizing, with saved conversation history.",
       },
-      { property: "og:title", content: "AI Chat — Workplace AI" },
+      { property: "og:title", content: "AI Chat — ALLORAXIA" },
       { property: "og:description", content: "A workplace AI assistant with saved history." },
     ],
   }),

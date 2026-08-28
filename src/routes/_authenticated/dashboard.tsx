@@ -25,12 +25,12 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard — Workplace AI" },
+      { title: "Dashboard — ALLORAXIA" },
       {
         name: "description",
         content: "Your personalized AI productivity overview: tasks, saved outputs and quick actions.",
       },
-      { property: "og:title", content: "Dashboard — Workplace AI" },
+      { property: "og:title", content: "Dashboard — ALLORAXIA" },
       { property: "og:description", content: "Your AI productivity overview and quick actions." },
     ],
   }),
