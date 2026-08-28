@@ -24,7 +24,7 @@ export async function saveOutput(input: {
     kind: input.kind,
     title: input.title.slice(0, 160) || "Untitled",
     content: input.content,
-    metadata: input.metadata ?? {},
+    metadata: (input.metadata ?? {}) as never,
   });
   if (error) throw error;
 }
