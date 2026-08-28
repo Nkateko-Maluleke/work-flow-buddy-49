@@ -1,564 +1,136 @@
-# AI Workplace Companion
+# ALLORAXIA
 
-Build a complete, modern, responsive full-stack SaaS web application called ALLORAXIA.
+**Everything. Connected.**
 
-The product is an AI-powered productivity platform for professionals, students, researchers, entrepreneurs and workplace teams. It should help users automate writing, meetings, planning, research and everyday workplace tasks.
+ALLORAXIA is an AI-powered productivity platform for professionals, students, researchers, entrepreneurs, and workplace teams. It brings writing, meetings, planning, and research into one connected workspace — helping you automate everyday workplace tasks without losing control over the output.
 
-Build it as one cohesive product, not disconnected demo pages.
+> ⚠️ AI-generated content may contain errors. Review important information and verify sources before relying on it.
 
-1. CORE FEATURES
+---
 
-Create these main sections:
+## ✨ Features
 
-Dashboard
+- **Dashboard** — A personalized productivity overview with quick actions, task summaries, and recent AI activity.
+- **Smart Email Generator** — Generate editable emails with configurable tone, length, and language. Emails are never sent automatically.
+- **Meeting Notes Summarizer** — Turn raw meeting notes into structured summaries, decisions, and action items with owners and deadlines.
+- **AI Task Planner** — Create, prioritize, and schedule tasks, with an "Optimize My Schedule" feature that builds a practical daily/weekly plan.
+- **AI Research Assistant** — Get structured research overviews with support for APA, Harvard, MLA, Chicago, IEEE, and Vancouver referencing styles. Never fabricates sources.
+- **AI Chat** — A full-featured assistant for writing, planning, summarization, and brainstorming, with conversation history and management.
+- **Saved Outputs** — Centralized library for saved emails, summaries, research, task plans, and chat responses, with search and filtering.
+- **Settings** — Manage profile, language, time zone, default tone/reference style, AI response length, theme, and notifications.
 
-A personalized productivity overview with:
+All AI outputs are **editable, copyable, saveable, regeneratable, and exportable** where appropriate.
 
-“Good morning, [Name]”
+---
 
-Global AI prompt: “What would you like to accomplish today?”
+## 🛠️ Tech Stack
 
-Quick actions for Email, Meetings, Tasks, Research and AI Chat
-
-Productivity statistics
-
-Tasks due today
-
-Recent AI activity
-
-Smart Email Generator
-
-Inputs:
-
-Email purpose
-
-Recipient/context
-
-Key points
-
-Tone: Formal, Professional, Friendly, Persuasive, Concise, Empathetic, Assertive
-
-Length: Short, Medium, Detailed
-
-Language
-
-Generate an editable:
-
-Subject
-
-Email body
-
-Actions:
-
-Copy
-
-Save
-
-Regenerate
-
-Shorten
-
-Expand
-
-Change tone
-
-Improve clarity
-
-Export
-
-Never automatically send emails.
-
-Meeting Notes Summarizer
-
-Allow users to paste/upload notes.
-
-Generate editable:
-
-Meeting summary
-
-Key discussion points
-
-Decisions
-
-Action items
-
-Responsible people
-
-Deadlines
-
-Follow-up items
-
-Include Copy, Save, Regenerate and Export.
-
-AI Task Planner
-
-Users can create tasks with:
-
-Name
-
-Description
-
-Due date
-
-Estimated duration
-
-Priority
-
-Category
-
-Priorities:
-Urgent, High, Medium, Low.
-
-Include:
-
-Today
-
-This Week
-
-All Tasks
-
-Completed
-
-Users can add, edit, delete, complete and reorder tasks.
-
-Add Optimize My Schedule, where AI prioritizes tasks using deadlines, priority, duration and available time, then creates a practical daily/weekly schedule.
-
-AI Research Assistant
-
-Users enter a topic/question.
-
-Generate:
-
-Overview
-
-Key insights
-
-Main arguments
-
-Advantages/disadvantages where relevant
-
-Recommendations
-
-Summary
-
-Support referencing styles:
-
-APA 7
-
-Harvard
-
-MLA
-
-Chicago
-
-IEEE
-
-Vancouver
-
-Never invent citations, sources, authors, dates or URLs. Clearly identify information that requires verification.
-
-AI Chat
-
-Create a modern AI chatbot interface with:
-
-Conversation history
-
-New conversation
-
-Message input
-
-Clear conversation
-
-Rename/delete conversations
-
-Copy responses
-
-Save responses
-
-The assistant should help with writing, planning, summarization, research, brainstorming, productivity and workplace communication.
-
-Saved Outputs
-
-Allow users to save and manage:
-
-Emails
-
-Meeting summaries
-
-Research
-
-Task plans
-
-Chat responses
-
-Include filtering, search, edit, rename, copy and delete.
-
-Settings
-
-Include:
-
-Profile
-
-Language
-
-Time zone
-
-Default email tone
-
-Default reference style
-
-AI response length
-
-Theme
-
-Notifications
-
-2. NAVIGATION
-
-Use a professional sidebar:
-
-Dashboard
-
-AI Chat
-
-Email Generator
-
-Meeting Summarizer
-
-Task Planner
-
-Research Assistant
-
-Saved Outputs
-
-Settings
-
-Bottom:
-
-User profile
-
-Theme toggle
-
-Help
-
-Sidebar collapses into mobile navigation on smaller screens.
-
-3. LANDING PAGE + AUTHENTICATION
-
-Create a polished public landing page.
-
-Hero:
-
-Everything. Connected.
-
-Subheading:
-
-“An intelligent workplace productivity assistant for writing, planning, research, meetings and everyday tasks.”
-
-Buttons:
-
-Get Started
-
-Explore Features
-
-Include feature cards and a simple:
-Input → AI Processing → Review/Edit → Save/Take Action
-
-section.
-
-Include responsible-AI messaging.
-
-Create Login and Sign Up pages with email/password authentication. Google authentication may be included if easily supported.
-
-After login, send users to Dashboard.
-
-4. AI EXPERIENCE
-
-All AI outputs must be:
-
-Editable
-
-Copyable
-
-Saveable
-
-Regeneratable
-
-Exportable where appropriate
-
-Provide contextual actions such as:
-
-Improve
-
-Shorten
-
-Expand
-
-Simplify
-
-Change tone
-
-Regenerate
-
-Create structured AI prompts for each feature instead of one generic AI prompt.
-
-Use secure server-side AI integration. Never expose API keys in frontend code.
-
-If AI credentials are unavailable, create a clearly labelled Demo Mode using realistic sample responses while keeping the architecture ready for a real AI API.
-
-5. DESIGN SYSTEM
-
-The application must look like a premium, modern AI SaaS product.
-
-Design characteristics:
-
-Clean + Professional + Innovative + Eye-catching + Easy to use
-
-Do not use a generic corporate-blue template.
-
-Colour palette
-
-Primary:
-
-Deep Navy #0F172A
-
-Indigo #6366F1
-
-Violet #8B5CF6
-
-Sky Blue #38BDF8
-
-Neutrals:
-
-Background #F8FAFC
-
-White #FFFFFF
-
-Text #1E293B
-
-Secondary text #64748B
-
-Border #E2E8F0
-
-Semantic:
-
-Success #10B981
-
-Warning #F59E0B
-
-Error #EF4444
-
-Use the neutral colours predominantly and accents strategically.
-
-Create a recognizable Indigo → Violet → Sky Blue AI gradient for selected AI elements, hero accents, AI badges and important CTAs. Do not overuse gradients.
-
-Visual style
-
-Use:
-
-Inter or similar modern sans-serif
-
-Lucide or consistent modern icons
-
-Rounded cards
-
-Subtle shadows
-
-Clean borders
-
-Generous whitespace
-
-Clear typography hierarchy
-
-Smooth micro-interactions
-
-Professional loading/error/empty states
-
-The desktop sidebar can use Deep Navy with light text and Indigo/Violet active states.
-
-The dashboard should primarily use a clean light background with white cards.
-
-AI-generated content should have subtle Indigo/Violet visual indicators so users can distinguish AI features without creating visual clutter.
-
-Include polished dark mode.
-
-Avoid excessive:
-
-Neon colours
-
-Glassmorphism
-
-Gradients
-
-Animations
-
-Shadows
-
-Clutter
-
-The result should feel premium, memorable and trustworthy.
-
-6. RESPONSIVENESS & ACCESSIBILITY
-
-The application must work properly on:
-
-Desktop
-
-Laptop
-
-Tablet
-
-Mobile
-
-No horizontal scrolling.
-
-Use accessible:
-
-Labels
-
-Buttons
-
-Forms
-
-Contrast
-
-Focus states
-
-Keyboard navigation
-
-Semantic HTML
-
-7. DATA & BACKEND
-
-Use Supabase or an appropriate backend for authentication and persistence.
-
-Create user-specific data for:
-
-Tasks
-
-Conversations
-
-Messages
-
-Saved outputs
-
-Meeting summaries
-
-Research sessions
-
-Generated emails
-
-Preferences
-
-Users must only access their own data. Use appropriate security/RLS policies.
-
-Create reusable components such as:
-
-Sidebar
-
-Header
-
-AIInput
-
-AIOutput
-
-TaskCard
-
-OutputCard
-
-SaveButton
-
-CopyButton
-
-LoadingState
-
-ErrorState
-
-EmptyState
-
-Toast/Notification
-
-8. ERROR & LOADING STATES
-
-Include polished states for:
-
-AI generation
-
-Network errors
-
-Empty inputs
-
-Failed generation
-
-Empty pages
-
-Use contextual loading messages such as:
-“Generating your email…”
-“Analyzing your notes…”
-“Prioritizing your tasks…”
-“Researching your topic…”
-
-9. RESPONSIBLE AI
-
-Include a subtle disclaimer:
-
-“AI-generated content may contain errors. Review important information and verify sources before relying on it.”
-
-For research:
-
-“References and factual claims should be independently verified before academic, professional or publication use.”
-
-Never claim AI outputs are guaranteed accurate.
-
-10. FINAL BUILD REQUIREMENT
-
-Build the application end-to-end with a polished, production-quality SaaS experience.
-
-Prioritize:
-
-Functional navigation
-
-Excellent UX
-
-Strong visual identity
-
-Working AI workflows
-
-Editable outputs
-
-Authentication
-
-Data persistence
-
-Responsive design
-
-Accessibility
-
-Professional error/loading states
-
-Make sensible implementation decisions without asking unnecessary clarification questions.
-
-Do not create a basic mockup. Build the complete application structure and functionality in this initial generation.
-
-Where a real external AI service is unavailable, use clearly labelled Demo Mode and keep the architecture ready for production API integration.
+- **Framework:** [TanStack Start](https://tanstack.com/start) + [TanStack Router](https://tanstack.com/router)
+- **UI:** React 19, Tailwind CSS 4, shadcn/ui, Radix UI primitives, Lucide icons
+- **Data & Forms:** TanStack Query, React Hook Form, Zod
+- **Backend:** [Supabase](https://supabase.com/) (authentication & data persistence)
+- **Build tooling:** Vite, ESLint, Prettier
+- **Package manager:** [Bun](https://bun.sh/)
 
 This project was built with [Lovable](https://lovable.dev).
 
-## Build with Lovable
+---
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/917db427-2ff8-4582-b8e4-dcd4324057a8).
+## 🚀 Getting Started
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+### Prerequisites
 
-## Development
+- [Bun](https://bun.sh/) (or Node.js + npm as an alternative)
+- A [Supabase](https://supabase.com/) project for authentication and data storage
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+### Installation
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```bash
+git clone https://github.com/Nkateko-Maluleke/work-flow-buddy-49.git
+cd work-flow-buddy-49
+bun install
 ```
+
+### Environment Variables
+
+Create a `.env` file in the project root with your Supabase credentials and any AI service keys required:
+
+```env
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+> Never expose AI provider API keys in frontend code — all AI calls should go through a secure server-side integration.
+
+### Run the development server
+
+```bash
+bun run dev
+```
+
+The app will be available at `http://localhost:5173` (or the port shown in your terminal).
+
+### Other scripts
+
+```bash
+bun run build       # Production build
+bun run build:dev   # Development-mode build
+bun run preview     # Preview the production build locally
+bun run lint         # Lint the codebase
+bun run format       # Format the codebase with Prettier
+```
+
+---
+
+## 📁 Project Structure
+
+```
+work-flow-buddy-49/
+├── public/          # Static assets
+├── src/              # Application source code
+├── supabase/         # Supabase configuration and migrations
+├── .lovable/          # Lovable project metadata
+├── package.json
+└── vite.config.ts
+```
+
+---
+
+## 🔒 Security & Data
+
+- Users can only access their own data (tasks, conversations, saved outputs, etc.) via Supabase Row Level Security (RLS) policies.
+- AI credentials and provider keys are never exposed in the frontend — all AI calls run through a secure server-side layer.
+- If AI credentials are unavailable, the app falls back to a clearly labelled **Demo Mode** with realistic sample responses.
+
+---
+
+## 🎨 Design
+
+ALLORAXIA uses a clean, professional design system built around a Deep Navy / Indigo / Violet / Sky Blue palette, with a signature Indigo → Violet → Sky Blue gradient reserved for AI-related elements and key calls to action. The interface is fully responsive (desktop, tablet, mobile) and includes a polished dark mode.
+
+---
+
+## 🤝 Contributing
+
+Continue developing this project directly in the [Lovable editor](https://lovable.dev/projects/917db427-2ff8-4582-b8e4-dcd4324057a8) — changes made there sync straight back to this repository, and pushes to `main` sync back into Lovable.
+
+For local contributions:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes
+4. Push to your branch and open a Pull Request
+
+---
+
+## 📄 License
+
+No license specified yet. Add a `LICENSE` file to define how others may use this project.
+
+---
+
+## ⚠️ Responsible AI
+
+AI-generated content — including emails, summaries, task plans, and research — may contain errors or inaccuracies. Always review important information before acting on it. References and factual claims produced by the Research Assistant should be independently verified before academic, professional, or publication use.
+
+
