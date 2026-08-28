@@ -19,7 +19,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { AI_DISCLAIMER } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-export function AIBadge({ demo = false }: { demo?: boolean }) {
+export function AIBadge({ demo = false }: { demo?: boolean | undefined }) {
   return (
     <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-accent px-2.5 py-1 text-xs font-medium text-accent-foreground">
       <Sparkles className="size-3" aria-hidden="true" />
@@ -28,7 +28,7 @@ export function AIBadge({ demo = false }: { demo?: boolean }) {
   );
 }
 
-export function AIDisclaimer({ extra }: { extra?: string }) {
+export function AIDisclaimer({ extra }: { extra?: string | undefined }) {
   return (
     <p className="text-xs leading-relaxed text-muted-foreground">
       {AI_DISCLAIMER}
@@ -173,7 +173,7 @@ function RefineButton({
   action: RefineAction;
   label: string;
   onRefine: (action: RefineAction) => void;
-  busy?: boolean;
+  busy?: boolean | undefined;
 }) {
   return (
     <Button size="sm" variant="ghost" disabled={busy} onClick={() => onRefine(action)}>
