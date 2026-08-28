@@ -80,11 +80,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ALLORAXIA — AI Productivity Assistant" },
+      { title: "ALLORAXIA — Everything. Connected." },
       {
         name: "description",
         content:
-          "An intelligent workplace productivity assistant for writing, planning, research, meetings and everyday tasks.",
+          "An intelligent connected workspace for writing, planning, research, meetings and everyday tasks.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

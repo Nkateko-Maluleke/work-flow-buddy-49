@@ -13,7 +13,7 @@ import { lovable } from "@/integrations/lovable/index";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Log in — ALLORAXIA Productivity Assistant" },
+      { title: "Log in — ALLORAXIA" },
       {
         name: "description",
         content:

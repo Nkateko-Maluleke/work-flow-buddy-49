@@ -51,7 +51,7 @@ export function SidebarBrand() {
           ALLORAXIA
         </span>
         <span className="block truncate text-xs text-sidebar-foreground/70">
-          Productivity Assistant
+          Everything. Connected.
         </span>
       </span>
     </Link>

@@ -23,7 +23,7 @@ export const Route = createFileRoute("/_authenticated/chat")({
       {
         name: "description",
         content:
-          "Chat with your workplace AI assistant for writing, planning, brainstorming and summarizing, with saved conversation history.",
+          "Chat with ALLORAXIA for writing, planning, brainstorming and summarizing, with saved conversation history.",
       },
       { property: "og:title", content: "AI Chat — ALLORAXIA" },
       { property: "og:description", content: "A workplace AI assistant with saved history." },

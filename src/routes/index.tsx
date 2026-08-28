@@ -19,17 +19,17 @@ import heroVisual from "@/assets/hero-visual.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ALLORAXIA — Work Smarter, Let AI Handle the Busywork" },
+      { title: "ALLORAXIA — Everything. Connected." },
       {
         name: "description",
         content:
-          "An intelligent workplace productivity assistant for writing, planning, research, meetings and everyday tasks. Draft emails, summarize meetings and plan your day with AI.",
+          "An intelligent connected workspace for writing, planning, research, meetings and everyday tasks. Draft emails, summarize meetings and plan your day with AI.",
       },
-      { property: "og:title", content: "ALLORAXIA — Work Smarter, Let AI Handle the Busywork" },
+      { property: "og:title", content: "ALLORAXIA — Everything. Connected." },
       {
         property: "og:description",
         content:
-          "AI productivity assistant for emails, meeting summaries, task planning, research and chat.",
+          "Connected AI workspace for emails, meeting summaries, task planning, research and chat.",
       },
     ],
   }),
@@ -103,15 +103,14 @@ function LandingPage() {
           <div>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-accent px-3 py-1 text-xs font-medium text-accent-foreground">
               <Sparkles className="size-3" aria-hidden="true" />
-              AI productivity for modern teams
+              Connected workspace for modern teams
             </span>
             <h1 className="mt-5 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-              Work Smarter.{" "}
-              <span className="gradient-ai-text">Let AI Handle the Busywork.</span>
+              ALLORAXIA
             </h1>
+            <p className="mt-3 text-xl font-medium text-foreground">Everything. Connected.</p>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-              An intelligent workplace productivity assistant for writing, planning, research,
-              meetings and everyday tasks.
+              An intelligent connected workspace for writing, planning, research, meetings and everyday tasks.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild size="lg">
@@ -210,7 +209,7 @@ function LandingPage() {
 
       <footer className="border-t border-border py-8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 text-sm text-muted-foreground sm:px-6">
-          <p>© {new Date().getFullYear()} ALLORAXIA. AI productivity assistant.</p>
+          <p>© {new Date().getFullYear()} ALLORAXIA. Everything. Connected.</p>
           <nav aria-label="Footer" className="flex gap-4">
             <Link to="/login" className="hover:text-foreground">
               Log in

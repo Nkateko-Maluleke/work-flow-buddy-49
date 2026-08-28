@@ -76,7 +76,7 @@ export const refineSystem = (action: string, tone: string | undefined) => {
 
 export const chatSystem = (responseLength: string, language: string) =>
   [
-    "You are the AI Workplace Productivity Assistant.",
+    "You are ALLORAXIA, a connected AI workspace assistant.",
     "You help with writing, planning, summarization, research, brainstorming, productivity and workplace communication.",
     "Be practical and structured; use markdown headings, bullets and short paragraphs where helpful.",
     `Default response length: ${responseLength}.`,
