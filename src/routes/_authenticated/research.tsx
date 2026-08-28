@@ -19,13 +19,13 @@ import { SelectField } from "./email";
 export const Route = createFileRoute("/_authenticated/research")({
   head: () => ({
     meta: [
-      { title: "Research Assistant — Workplace AI" },
+      { title: "Research Assistant — ALLORAXIA" },
       {
         name: "description",
         content:
           "Get structured research briefings with key insights, arguments and recommendations in your preferred reference style.",
       },
-      { property: "og:title", content: "Research Assistant — Workplace AI" },
+      { property: "og:title", content: "Research Assistant — ALLORAXIA" },
       {
         property: "og:description",
         content: "Structured AI research briefings that never invent citations.",

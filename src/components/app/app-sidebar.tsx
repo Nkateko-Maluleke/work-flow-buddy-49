@@ -48,10 +48,10 @@ export function SidebarBrand() {
       </span>
       <span className="min-w-0">
         <span className="block truncate text-sm font-semibold text-sidebar-accent-foreground">
-          Workplace AI
+          ALLORAXIA
         </span>
         <span className="block truncate text-xs text-sidebar-foreground/70">
-          Productivity Assistant
+          Everything. Connected.
         </span>
       </span>
     </Link>
@@ -134,7 +134,7 @@ export function SidebarFooter({ name, email }: { name: string; email: string }) 
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>How to use Workplace AI</DialogTitle>
+              <DialogTitle>How to use ALLORAXIA</DialogTitle>
               <DialogDescription>
                 Every tool follows the same flow: give input, let AI process it, review and edit the
                 result, then save or export it.

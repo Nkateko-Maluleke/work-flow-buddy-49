@@ -1,6 +1,6 @@
 # AI Workplace Companion
 
-Build a complete, modern, responsive full-stack SaaS web application called AI Workplace Productivity Assistant.
+Build a complete, modern, responsive full-stack SaaS web application called ALLORAXIA.
 
 The product is an AI-powered productivity platform for professionals, students, researchers, entrepreneurs and workplace teams. It should help users automate writing, meetings, planning, research and everyday workplace tasks.
 
@@ -249,7 +249,7 @@ Create a polished public landing page.
 
 Hero:
 
-Work Smarter. Let AI Handle the Busywork.
+Everything. Connected.
 
 Subheading:
 

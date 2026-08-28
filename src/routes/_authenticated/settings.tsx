@@ -25,13 +25,13 @@ import { SelectField } from "./email";
 export const Route = createFileRoute("/_authenticated/settings")({
   head: () => ({
     meta: [
-      { title: "Settings — Workplace AI" },
+      { title: "Settings — ALLORAXIA" },
       {
         name: "description",
         content:
           "Manage your profile, default AI tone, language, time zone, reference style and appearance preferences.",
       },
-      { property: "og:title", content: "Settings — Workplace AI" },
+      { property: "og:title", content: "Settings — ALLORAXIA" },
       { property: "og:description", content: "Manage your profile and AI preferences." },
     ],
   }),

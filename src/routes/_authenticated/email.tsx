@@ -26,13 +26,13 @@ import { saveOutput, slugify } from "@/lib/outputs";
 export const Route = createFileRoute("/_authenticated/email")({
   head: () => ({
     meta: [
-      { title: "Smart Email Generator — Workplace AI" },
+      { title: "Smart Email Generator — ALLORAXIA" },
       {
         name: "description",
         content:
           "Generate professional emails in any tone, length and language, then edit, refine and export the draft.",
       },
-      { property: "og:title", content: "Smart Email Generator — Workplace AI" },
+      { property: "og:title", content: "Smart Email Generator — ALLORAXIA" },
       { property: "og:description", content: "AI email drafting with full editing control." },
     ],
   }),

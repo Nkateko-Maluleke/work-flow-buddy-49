@@ -29,13 +29,13 @@ import { SelectField } from "./email";
 export const Route = createFileRoute("/_authenticated/tasks")({
   head: () => ({
     meta: [
-      { title: "AI Task Planner — Workplace AI" },
+      { title: "AI Task Planner — ALLORAXIA" },
       {
         name: "description",
         content:
           "Capture tasks with priority, duration and deadlines, then let AI build a realistic, time-blocked daily schedule.",
       },
-      { property: "og:title", content: "AI Task Planner — Workplace AI" },
+      { property: "og:title", content: "AI Task Planner — ALLORAXIA" },
       { property: "og:description", content: "Task management with AI schedule optimization." },
     ],
   }),
