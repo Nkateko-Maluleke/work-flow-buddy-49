@@ -5,6 +5,12 @@ import { Mail, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
 import { AIOutput, type RefineAction } from "@/components/ai/ai-output";
+import {
+  DocumentUpload,
+  attachmentsToContext,
+  type Attachment,
+} from "@/components/ai/document-upload";
+import { VoiceInput } from "@/components/ai/voice-input";
 import { PageHeader } from "@/components/app/app-shell";
 import { EmptyState, ErrorState, LoadingState } from "@/components/common/states";
 import { Button } from "@/components/ui/button";
@@ -47,6 +53,7 @@ function EmailPage() {
   const [purpose, setPurpose] = useState("");
   const [recipient, setRecipient] = useState("");
   const [keyPoints, setKeyPoints] = useState("");
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
   const [tone, setTone] = useState(profile?.default_email_tone ?? "Professional");
   const [length, setLength] = useState("Medium");
   const [language, setLanguage] = useState(profile?.language ?? "English");
@@ -66,7 +73,16 @@ function EmailPage() {
     setBusy(true);
     try {
       const result = await generate({
-        data: { purpose, recipient, keyPoints, tone, length, language },
+        data: {
+          purpose,
+          recipient,
+          keyPoints: [keyPoints.trim(), attachmentsToContext(attachments)]
+            .filter(Boolean)
+            .join("\n\n"),
+          tone,
+          length,
+          language,
+        },
       });
       setSubject(result.subject);
       setBody(result.body);
@@ -119,7 +135,16 @@ function EmailPage() {
           className="space-y-4 rounded-xl border border-border bg-card p-5 shadow-card"
         >
           <div className="space-y-2">
-            <Label htmlFor="purpose">What is the email about?</Label>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <Label htmlFor="purpose">What is the email about?</Label>
+              <VoiceInput
+                label="Dictate"
+                disabled={busy}
+                onTranscript={(text) =>
+                  setPurpose((current) => (current ? `${current.trimEnd()} ${text}` : text))
+                }
+              />
+            </div>
             <Textarea
               id="purpose"
               rows={3}
@@ -147,6 +172,12 @@ function EmailPage() {
               placeholder="One point per line"
             />
           </div>
+          <DocumentUpload
+            attachments={attachments}
+            onChange={setAttachments}
+            disabled={busy}
+            label="Attach reference documents"
+          />
 
           <div className="grid gap-4 sm:grid-cols-2">
             <SelectField label="Tone" value={tone} onChange={setTone} options={[...TONES]} />

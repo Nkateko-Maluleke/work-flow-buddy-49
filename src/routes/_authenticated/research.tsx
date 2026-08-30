@@ -5,6 +5,12 @@ import { Search, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
 import { AIOutput, type RefineAction } from "@/components/ai/ai-output";
+import {
+  DocumentUpload,
+  attachmentsToContext,
+  type Attachment,
+} from "@/components/ai/document-upload";
+import { VoiceInput } from "@/components/ai/voice-input";
 import { PageHeader } from "@/components/app/app-shell";
 import { EmptyState, ErrorState, LoadingState } from "@/components/common/states";
 import { Button } from "@/components/ui/button";
@@ -43,6 +49,7 @@ function ResearchPage() {
   const refine = useServerFn(refineText);
 
   const [topic, setTopic] = useState("");
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
   const [referenceStyle, setReferenceStyle] = useState(profile?.default_reference_style ?? "APA 7");
   const [depth, setDepth] = useState("Medium");
   const [language, setLanguage] = useState(profile?.language ?? "English");
@@ -59,7 +66,15 @@ function ResearchPage() {
     setError(null);
     setBusy(true);
     try {
-      const result = await research({ data: { topic, referenceStyle, language, depth } });
+      const context = attachmentsToContext(attachments);
+      const result = await research({
+        data: {
+          topic: context ? `${topic}\n\nUse this attached source material:\n${context}` : topic,
+          referenceStyle,
+          language,
+          depth,
+        },
+      });
       setOutput(result.text);
       setDemo(result.demo);
     } catch (caught) {
@@ -110,7 +125,16 @@ function ResearchPage() {
           className="space-y-4 rounded-xl border border-border bg-card p-5 shadow-card"
         >
           <div className="space-y-2">
-            <Label htmlFor="topic">Topic or question</Label>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <Label htmlFor="topic">Topic or question</Label>
+              <VoiceInput
+                label="Dictate"
+                disabled={busy}
+                onTranscript={(text) =>
+                  setTopic((current) => (current ? `${current.trimEnd()} ${text}` : text))
+                }
+              />
+            </div>
             <Textarea
               id="topic"
               rows={5}

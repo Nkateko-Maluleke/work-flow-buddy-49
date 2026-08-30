@@ -5,6 +5,12 @@ import { Notebook, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
 import { AIOutput, type RefineAction } from "@/components/ai/ai-output";
+import {
+  DocumentUpload,
+  attachmentsToContext,
+  type Attachment,
+} from "@/components/ai/document-upload";
+import { VoiceInput } from "@/components/ai/voice-input";
 import { PageHeader } from "@/components/app/app-shell";
 import { EmptyState, ErrorState, LoadingState } from "@/components/common/states";
 import { Button } from "@/components/ui/button";
@@ -43,6 +49,7 @@ function MeetingsPage() {
 
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
   const [language, setLanguage] = useState(profile?.language ?? "English");
   const [summary, setSummary] = useState("");
   const [demo, setDemo] = useState(false);
@@ -50,14 +57,18 @@ function MeetingsPage() {
   const [error, setError] = useState<string | null>(null);
 
   const run = async () => {
-    if (notes.trim().length < 20) {
-      setError("Paste at least a few lines of meeting notes so the summary has something to work with.");
+    const context = attachmentsToContext(attachments);
+    const combined = [notes.trim(), context].filter(Boolean).join("\n\n");
+    if (combined.length < 20) {
+      setError(
+        "Paste a few lines of meeting notes, attach a document or record a voice note so the summary has something to work with.",
+      );
       return;
     }
     setError(null);
     setBusy(true);
     try {
-      const result = await summarize({ data: { notes, language } });
+      const result = await summarize({ data: { notes: combined, language } });
       setSummary(result.text);
       setDemo(result.demo);
     } catch (caught) {
@@ -117,15 +128,30 @@ function MeetingsPage() {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="notes">Notes or transcript</Label>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <Label htmlFor="notes">Notes or transcript</Label>
+              <VoiceInput
+                label="Record notes"
+                disabled={busy}
+                onTranscript={(text) =>
+                  setNotes((current) => (current ? `${current.trimEnd()}\n\n${text}` : text))
+                }
+              />
+            </div>
             <Textarea
               id="notes"
-              rows={14}
+              rows={12}
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
-              placeholder="Paste anything — bullet points, chat log or a full transcript."
+              placeholder="Paste anything — bullet points, chat log or a full transcript. You can also record the meeting audio or attach a file."
             />
           </div>
+          <DocumentUpload
+            attachments={attachments}
+            onChange={setAttachments}
+            disabled={busy}
+            label="Attach meeting documents"
+          />
           <SelectField
             label="Language"
             value={language}
