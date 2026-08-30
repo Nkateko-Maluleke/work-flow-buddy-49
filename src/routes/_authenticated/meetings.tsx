@@ -128,15 +128,30 @@ function MeetingsPage() {
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="notes">Notes or transcript</Label>
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <Label htmlFor="notes">Notes or transcript</Label>
+              <VoiceInput
+                label="Record notes"
+                disabled={busy}
+                onTranscript={(text) =>
+                  setNotes((current) => (current ? `${current.trimEnd()}\n\n${text}` : text))
+                }
+              />
+            </div>
             <Textarea
               id="notes"
-              rows={14}
+              rows={12}
               value={notes}
               onChange={(event) => setNotes(event.target.value)}
-              placeholder="Paste anything — bullet points, chat log or a full transcript."
+              placeholder="Paste anything — bullet points, chat log or a full transcript. You can also record the meeting audio or attach a file."
             />
           </div>
+          <DocumentUpload
+            attachments={attachments}
+            onChange={setAttachments}
+            disabled={busy}
+            label="Attach meeting documents"
+          />
           <SelectField
             label="Language"
             value={language}
