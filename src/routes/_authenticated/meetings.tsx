@@ -5,6 +5,12 @@ import { Notebook, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 
 import { AIOutput, type RefineAction } from "@/components/ai/ai-output";
+import {
+  DocumentUpload,
+  attachmentsToContext,
+  type Attachment,
+} from "@/components/ai/document-upload";
+import { VoiceInput } from "@/components/ai/voice-input";
 import { PageHeader } from "@/components/app/app-shell";
 import { EmptyState, ErrorState, LoadingState } from "@/components/common/states";
 import { Button } from "@/components/ui/button";
