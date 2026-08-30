@@ -49,6 +49,7 @@ function MeetingsPage() {
 
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
   const [language, setLanguage] = useState(profile?.language ?? "English");
   const [summary, setSummary] = useState("");
   const [demo, setDemo] = useState(false);
