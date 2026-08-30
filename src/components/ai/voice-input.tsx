@@ -43,15 +43,13 @@ export function VoiceInput({
     setBusy(true);
     try {
       const dataBase64 = await blobToBase64(blob);
-      const result = await transcribeRecording
-        ? await transcribe({
-            data: {
-              dataBase64,
-              mimeType: blob.type || "audio/webm",
-              ...(fileName ? { fileName } : {}),
-            },
-          })
-        : { text: "" };
+      const result = await transcribe({
+        data: {
+          dataBase64,
+          mimeType: blob.type || "audio/webm",
+          ...(fileName ? { fileName } : {}),
+        },
+      });
       if (result.text.trim()) {
         onTranscript(result.text.trim());
         toast.success("Transcribed");
