@@ -57,14 +57,18 @@ function MeetingsPage() {
   const [error, setError] = useState<string | null>(null);
 
   const run = async () => {
-    if (notes.trim().length < 20) {
-      setError("Paste at least a few lines of meeting notes so the summary has something to work with.");
+    const context = attachmentsToContext(attachments);
+    const combined = [notes.trim(), context].filter(Boolean).join("\n\n");
+    if (combined.length < 20) {
+      setError(
+        "Paste a few lines of meeting notes, attach a document or record a voice note so the summary has something to work with.",
+      );
       return;
     }
     setError(null);
     setBusy(true);
     try {
-      const result = await summarize({ data: { notes, language } });
+      const result = await summarize({ data: { notes: combined, language } });
       setSummary(result.text);
       setDemo(result.demo);
     } catch (caught) {
