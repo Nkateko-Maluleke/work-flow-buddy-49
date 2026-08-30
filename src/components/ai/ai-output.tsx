@@ -102,6 +102,14 @@ export function AIOutput({
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {toolbarExtra}
+          <VoiceInput
+            label="Voice note"
+            disabled={busy}
+            onTranscript={(text) =>
+              onChange(`${value.trimEnd()}\n\n**Voice note:** ${text}\n`)
+            }
+          />
+
           <CopyButton value={value} />
           {onSave ? (
             <Button size="sm" variant="outline" onClick={handleSave} disabled={saving}>
