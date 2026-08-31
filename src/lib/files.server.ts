@@ -205,7 +205,11 @@ export async function transcribeAudio(input: {
 
   const res = await fetch(`${GATEWAY}/audio/transcriptions`, {
     method: "POST",
-    headers: { "Lovable-API-Key": key, "X-Lovable-AIG-SDK": "fetch" },
+    headers: {
+      Authorization: `Bearer ${key}`,
+      "Lovable-API-Key": key,
+      "X-Lovable-AIG-SDK": "fetch",
+    },
     body: form,
   });
 
