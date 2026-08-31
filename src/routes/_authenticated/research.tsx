@@ -143,6 +143,12 @@ function ResearchPage() {
               placeholder="How does hybrid work affect employee productivity in professional services?"
             />
           </div>
+          <DocumentUpload
+            attachments={attachments}
+            onChange={setAttachments}
+            disabled={busy}
+            label="Attach source documents"
+          />
           <SelectField
             label="Reference style"
             value={referenceStyle}
