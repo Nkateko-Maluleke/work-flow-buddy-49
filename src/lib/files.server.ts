@@ -182,7 +182,7 @@ export async function extractDocument(input: {
 export async function transcribeAudio(input: {
   dataBase64: string;
   mimeType: string;
-  fileName?: string;
+  fileName?: string | undefined;
 }): Promise<{ text: string; demo: boolean }> {
   const key = process.env["LOVABLE_API_KEY"];
   if (!key) {
