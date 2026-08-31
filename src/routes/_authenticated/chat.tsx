@@ -6,6 +6,12 @@ import { MessagesSquare, Plus, Send, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 import { AIDisclaimer, MarkdownView } from "@/components/ai/ai-output";
+import {
+  DocumentUpload,
+  attachmentsToContext,
+  type Attachment,
+} from "@/components/ai/document-upload";
+import { VoiceInput } from "@/components/ai/voice-input";
 import { PageHeader } from "@/components/app/app-shell";
 import { CopyButton } from "@/components/common/copy-button";
 import { EmptyState, ErrorState } from "@/components/common/states";
@@ -51,6 +57,7 @@ function ChatPage() {
 
   const [activeId, setActiveId] = useState<string | null>(null);
   const [input, setInput] = useState("");
+  const [attachments, setAttachments] = useState<Attachment[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -101,7 +108,8 @@ function ChatPage() {
   });
 
   const send = async (text: string) => {
-    if (!user || !text.trim() || busy) return;
+    if (!user || busy) return;
+    if (!text.trim() && attachments.length === 0) return;
     setError(null);
     setBusy(true);
     setInput("");
@@ -119,18 +127,26 @@ function ChatPage() {
         setActiveId(conversationId);
       }
 
+      const context = attachmentsToContext(attachments);
+      const fileNote =
+        attachments.length > 0
+          ? `\n\n_Attached: ${attachments.map((item) => item.name).join(", ")}_`
+          : "";
+      const stored = `${text.trim()}${fileNote}`;
+      const forModel = context ? `${text.trim()}\n\n${context}` : text.trim();
+
       const { error: userMsgError } = await supabase.from("messages").insert({
         user_id: user.id,
         conversation_id: conversationId,
         role: "user",
-        content: text.trim(),
+        content: stored,
       });
       if (userMsgError) throw userMsgError;
       await queryClient.invalidateQueries({ queryKey: ["messages", conversationId] });
 
       const history = [
         ...messages.map((message) => ({ role: message.role, content: message.content })),
-        { role: "user" as const, content: text.trim() },
+        { role: "user" as const, content: forModel },
       ];
 
       const result = await reply({
@@ -156,6 +172,7 @@ function ChatPage() {
 
       await queryClient.invalidateQueries({ queryKey: ["messages", conversationId] });
       await queryClient.invalidateQueries({ queryKey: ["conversations"] });
+      setAttachments([]);
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : "The assistant could not reply.");
     } finally {
@@ -276,11 +293,20 @@ function ChatPage() {
             </div>
           ) : null}
 
+          <div className="border-t border-border px-3 pt-3">
+            <DocumentUpload
+              attachments={attachments}
+              onChange={setAttachments}
+              disabled={busy}
+              label="Attach documents"
+            />
+          </div>
+
           <form
-            className="flex items-end gap-2 border-t border-border p-3"
+            className="flex items-end gap-2 p-3"
             onSubmit={(event) => {
               event.preventDefault();
-              send(input);
+              send(input || "Please review the attached document(s).");
             }}
           >
             <label className="sr-only" htmlFor="chat-input">
@@ -294,13 +320,24 @@ function ChatPage() {
               onKeyDown={(event) => {
                 if (event.key === "Enter" && !event.shiftKey) {
                   event.preventDefault();
-                  send(input);
+                  send(input || "Please review the attached document(s).");
                 }
               }}
               placeholder="Ask anything about your work…"
               className="min-h-[52px] resize-none"
             />
-            <Button type="submit" disabled={busy || !input.trim()} aria-label="Send message">
+            <VoiceInput
+              size="icon"
+              disabled={busy}
+              onTranscript={(text) =>
+                setInput((current) => (current ? `${current.trimEnd()} ${text}` : text))
+              }
+            />
+            <Button
+              type="submit"
+              disabled={busy || (!input.trim() && attachments.length === 0)}
+              aria-label="Send message"
+            >
               <Send className="size-4" aria-hidden="true" />
             </Button>
           </form>

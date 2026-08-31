@@ -182,7 +182,7 @@ export async function extractDocument(input: {
 export async function transcribeAudio(input: {
   dataBase64: string;
   mimeType: string;
-  fileName?: string;
+  fileName?: string | undefined;
 }): Promise<{ text: string; demo: boolean }> {
   const key = process.env["LOVABLE_API_KEY"];
   if (!key) {
@@ -205,7 +205,11 @@ export async function transcribeAudio(input: {
 
   const res = await fetch(`${GATEWAY}/audio/transcriptions`, {
     method: "POST",
-    headers: { "Lovable-API-Key": key, "X-Lovable-AIG-SDK": "fetch" },
+    headers: {
+      Authorization: `Bearer ${key}`,
+      "Lovable-API-Key": key,
+      "X-Lovable-AIG-SDK": "fetch",
+    },
     body: form,
   });
 
