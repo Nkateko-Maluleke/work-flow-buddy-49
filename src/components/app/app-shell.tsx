@@ -2,6 +2,7 @@ import { Menu, Sparkles } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { SidebarBrand, SidebarFooter, SidebarNav } from "@/components/app/app-sidebar";
+import { TaskReminder } from "@/components/app/task-reminder";
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
