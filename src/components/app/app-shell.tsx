@@ -2,6 +2,7 @@ import { Menu, Sparkles } from "lucide-react";
 import { useState, type ReactNode } from "react";
 
 import { SidebarBrand, SidebarFooter, SidebarNav } from "@/components/app/app-sidebar";
+import { TaskReminder } from "@/components/app/task-reminder";
 import { useTheme } from "@/components/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -71,6 +72,9 @@ export function AppShell({ children }: { children: ReactNode }) {
 
         <main className="min-w-0 flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">{children}</main>
       </div>
+
+      <TaskReminder />
+
     </div>
   );
 }
