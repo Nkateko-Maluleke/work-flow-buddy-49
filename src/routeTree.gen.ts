@@ -21,6 +21,8 @@ import { Route as AuthenticatedResearchRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedSavedRouteImport } from './routes/_authenticated/saved'
 import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedTasksRouteImport } from './routes/_authenticated/tasks'
+import { Route as AuthenticatedVisualsRouteImport } from './routes/_authenticated/visuals'
+import { Route as ApiGenerateVisualRouteImport } from './routes/api/generate-visual'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -81,6 +83,16 @@ const AuthenticatedTasksRoute = AuthenticatedTasksRouteImport.update({
   path: '/tasks',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedVisualsRoute = AuthenticatedVisualsRouteImport.update({
+  id: '/visuals',
+  path: '/visuals',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const ApiGenerateVisualRoute = ApiGenerateVisualRouteImport.update({
+  id: '/api/generate-visual',
+  path: '/api/generate-visual',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -94,6 +106,8 @@ export interface FileRoutesByFullPath {
   '/saved': typeof AuthenticatedSavedRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/tasks': typeof AuthenticatedTasksRoute
+  '/visuals': typeof AuthenticatedVisualsRoute
+  '/api/generate-visual': typeof ApiGenerateVisualRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -107,6 +121,8 @@ export interface FileRoutesByTo {
   '/saved': typeof AuthenticatedSavedRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/tasks': typeof AuthenticatedTasksRoute
+  '/visuals': typeof AuthenticatedVisualsRoute
+  '/api/generate-visual': typeof ApiGenerateVisualRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -122,6 +138,8 @@ export interface FileRoutesById {
   '/_authenticated/saved': typeof AuthenticatedSavedRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/_authenticated/tasks': typeof AuthenticatedTasksRoute
+  '/_authenticated/visuals': typeof AuthenticatedVisualsRoute
+  '/api/generate-visual': typeof ApiGenerateVisualRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -137,6 +155,8 @@ export interface FileRouteTypes {
     | '/saved'
     | '/settings'
     | '/tasks'
+    | '/visuals'
+    | '/api/generate-visual'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -150,6 +170,8 @@ export interface FileRouteTypes {
     | '/saved'
     | '/settings'
     | '/tasks'
+    | '/visuals'
+    | '/api/generate-visual'
   id:
     | '__root__'
     | '/'
@@ -164,6 +186,8 @@ export interface FileRouteTypes {
     | '/_authenticated/saved'
     | '/_authenticated/settings'
     | '/_authenticated/tasks'
+    | '/_authenticated/visuals'
+    | '/api/generate-visual'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +195,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   LoginRoute: typeof LoginRoute
   SignupRoute: typeof SignupRoute
+  ApiGenerateVisualRoute: typeof ApiGenerateVisualRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -259,6 +284,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTasksRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/visuals': {
+      id: '/_authenticated/visuals'
+      path: '/visuals'
+      fullPath: '/visuals'
+      preLoaderRoute: typeof AuthenticatedVisualsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/api/generate-visual': {
+      id: '/api/generate-visual'
+      path: '/api/generate-visual'
+      fullPath: '/api/generate-visual'
+      preLoaderRoute: typeof ApiGenerateVisualRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -271,6 +310,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedSavedRoute: typeof AuthenticatedSavedRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
   AuthenticatedTasksRoute: typeof AuthenticatedTasksRoute
+  AuthenticatedVisualsRoute: typeof AuthenticatedVisualsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -282,6 +322,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSavedRoute: AuthenticatedSavedRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
   AuthenticatedTasksRoute: AuthenticatedTasksRoute,
+  AuthenticatedVisualsRoute: AuthenticatedVisualsRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
@@ -292,6 +333,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   LoginRoute: LoginRoute,
   SignupRoute: SignupRoute,
+  ApiGenerateVisualRoute: ApiGenerateVisualRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

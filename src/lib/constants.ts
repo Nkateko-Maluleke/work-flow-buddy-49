@@ -67,6 +67,7 @@ export const OUTPUT_KINDS = {
   research: "Research",
   plan: "Task Plan",
   chat: "Chat Response",
+  visual: "Visual",
 } as const;
 
 export type OutputKind = keyof typeof OUTPUT_KINDS;
