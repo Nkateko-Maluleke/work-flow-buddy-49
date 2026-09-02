@@ -192,7 +192,7 @@ function VisualsPage() {
           className="rounded-xl border border-border bg-card p-4 shadow-card"
         >
           {error ? (
-            <ErrorState message={error} onRetry={brief.trim() ? generate : undefined} />
+            <ErrorState message={error} onRetry={() => void generate()} />
           ) : image ? (
             <div className="space-y-3">
               <img
