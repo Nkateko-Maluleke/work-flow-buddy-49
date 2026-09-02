@@ -8,6 +8,7 @@ import {
   MessagesSquare,
   Moon,
   Notebook,
+  Image,
   Search,
   Settings,
   Sparkles,
@@ -36,6 +37,7 @@ export const navItems = [
   { to: "/meetings", label: "Meeting Summarizer", icon: Notebook },
   { to: "/tasks", label: "Task Planner", icon: CalendarClock },
   { to: "/research", label: "Research Assistant", icon: Search },
+  { to: "/visuals", label: "Visual Studio", icon: Image },
   { to: "/saved", label: "Saved Outputs", icon: BookmarkCheck },
   { to: "/settings", label: "Settings", icon: Settings },
 ] as const;
