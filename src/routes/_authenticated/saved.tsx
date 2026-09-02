@@ -23,6 +23,7 @@ import { useSession } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
 import { OUTPUT_KINDS, type OutputKind } from "@/lib/constants";
 import { downloadText, listOutputs, slugify, type SavedOutput } from "@/lib/outputs";
+import { signedVisualUrl } from "@/lib/visuals";
 import { cn } from "@/lib/utils";
 import { SelectField } from "./email";
 
@@ -46,6 +47,23 @@ const FILTERS = ["All", ...Object.values(OUTPUT_KINDS)];
 const kindByLabel = Object.fromEntries(
   Object.entries(OUTPUT_KINDS).map(([key, label]) => [label, key as OutputKind]),
 );
+
+function VisualPreview({ path, title }: { path: string; title: string }) {
+  const urlQuery = useQuery({
+    queryKey: ["visual-url", path],
+    queryFn: () => signedVisualUrl(path),
+    staleTime: 50 * 60 * 1000,
+  });
+  if (!urlQuery.data) return null;
+  return (
+    <img
+      src={urlQuery.data}
+      alt={title}
+      className="mb-3 w-full max-w-md rounded-lg border border-border"
+      loading="lazy"
+    />
+  );
+}
 
 function SavedPage() {
   const { user } = useSession();
@@ -187,7 +205,10 @@ function SavedPage() {
                     </Button>
                   </div>
                 </div>
-                <div className={cn("mt-3 max-h-56 overflow-y-auto border-t border-border pt-3")}>
+                <div className={cn("mt-3 max-h-96 overflow-y-auto border-t border-border pt-3")}>
+                  {typeof item.metadata?.["path"] === "string" ? (
+                    <VisualPreview path={item.metadata["path"] as string} title={item.title} />
+                  ) : null}
                   <MarkdownView content={item.content} />
                 </div>
               </li>
